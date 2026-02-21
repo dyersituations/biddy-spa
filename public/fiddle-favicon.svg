@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f1711"/>
+      <stop offset="100%" stop-color="#4b3323"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e5aa60"/>
+      <stop offset="100%" stop-color="#b4632f"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="14" fill="url(#bg)" />
+  <circle cx="32" cy="32" r="25" fill="#f8eddc" opacity=".1" />
+
+  <g>
+    <rect x="28.8" y="4" width="6.4" height="18" rx="2.2" fill="#2a170d" />
+    <circle cx="32" cy="4.8" r="3.3" fill="#2a170d" />
+    <rect x="30.1" y="8.5" width="3.8" height="21.2" rx="1.8" fill="#160d08" />
+    <path
+      d="M32 55
+         C23.3 55 18.8 48.2 19.4 42.1
+         C19.9 37.6 22.7 34.3 25 32.2
+         C22.7 30 19.9 26.7 19.4 22.2
+         C18.8 16.1 23.3 9.3 32 9.3
+         C40.7 9.3 45.2 16.1 44.6 22.2
+         C44.1 26.7 41.3 30 39 32.2
+         C41.3 34.3 44.1 37.6 44.6 42.1
+         C45.2 48.2 40.7 55 32 55 Z"
+      fill="url(#wood)"
+      stroke="#8f4a22"
+      stroke-width="1.2"
+    />
+    <path d="M27.4 32.2 Q32 29.7 36.6 32.2 Q32 34.2 27.4 32.2 Z" fill="#d08b4f" />
+    <path d="M28.1 35 C25.8 37.2 25.8 41.3 28.1 43.5" stroke="#6f3518" stroke-width="1.5" stroke-linecap="round" fill="none" />
+    <path d="M35.9 35 C38.2 37.2 38.2 41.3 35.9 43.5" stroke="#6f3518" stroke-width="1.5" stroke-linecap="round" fill="none" />
+    <path d="M29 45.2 Q32 47.4 35 45.2 L33.6 52 H30.4 Z" fill="#2a170d" />
+    <line x1="30.6" y1="6.7" x2="30.6" y2="49.8" stroke="#f8f3ea" stroke-width=".9" />
+    <line x1="31.5" y1="6.4" x2="31.5" y2="49.5" stroke="#f8f3ea" stroke-width=".8" />
+    <line x1="32.5" y1="6.4" x2="32.5" y2="49.5" stroke="#f8f3ea" stroke-width=".8" />
+    <line x1="33.4" y1="6.7" x2="33.4" y2="49.8" stroke="#f8f3ea" stroke-width=".9" />
+  </g>
+</svg>

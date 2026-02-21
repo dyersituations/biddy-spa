@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Oregon Coast Scenic Railroad",
+    "date": "March 14, 2026",
+    "time": "5:30-7:30pm",
+    "location": "Garibaldi, OR",
+    "startDate": "2026-03-14",
+    "startTime": "17:30",
+    "endTime": "19:30",
+    "utcOffset": "-07:00",
+    "addressLocality": "Garibaldi",
+    "addressRegion": "OR",
+    "addressCountry": "US",
+    "url": "https://oregoncoastscenic.org/train-rides/st-patricks-train/",
+    "image": "https://oregoncoastscenic.org/wp-content/uploads/sites/4696/2024/02/DSC0076.jpg?resize=360%2C240&zoom=2"
+  },
+  {
+    "name": "Double Mountain Brewery",
+    "date": "March 15, 2026",
+    "time": "12-2pm",
+    "location": "Hood River, OR",
+    "startDate": "2026-03-15",
+    "startTime": "12:00",
+    "endTime": "14:00",
+    "utcOffset": "-07:00",
+    "addressLocality": "Hood River",
+    "addressRegion": "OR",
+    "addressCountry": "US",
+    "url": "https://doublemountainbrewery.com/hood-river/",
+    "image": "https://doublemountainbrewery.com/wp-content/uploads/2025/06/hood-river-hero.webp"
+  },
+  {
+    "name": "Rock Creek Tavern",
+    "date": "March 15, 2026",
+    "time": "5-7pm",
+    "location": "Hillsboro, OR",
+    "startDate": "2026-03-15",
+    "startTime": "17:00",
+    "endTime": "19:00",
+    "utcOffset": "-07:00",
+    "addressLocality": "Hillsboro",
+    "addressRegion": "OR",
+    "addressCountry": "US",
+    "url": "https://www.mcmenamins.com/rock-creek-tavern",
+    "image": "https://d2660z551umiy9.cloudfront.net/images/Promos/Rock%20Creek/RockCreek2-2020.jpg"
+  },
+  {
+    "name": "The Dullahan Irish Pub",
+    "date": "March 17th, 2026",
+    "time": "6-8pm",
+    "location": "Lake Oswego, OR",
+    "startDate": "2026-03-17",
+    "startTime": "18:00",
+    "endTime": "20:00",
+    "utcOffset": "-07:00",
+    "addressLocality": "Lake Oswego",
+    "addressRegion": "OR",
+    "addressCountry": "US",
+    "url": "https://thedullahanpub.com/",
+    "image": "https://res.cloudinary.com/spothopper/image/fetch/f_auto%2Cq_auto%3Abest%2Cc_fit%2Ch_1200/http%3A//static.spotapps.co/spots/92/c15cc0ff4e494ebfc75f4c74530fb5/%3Aoriginal"
+  }
+]

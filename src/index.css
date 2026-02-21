@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css?family=Libre+Franklin:300,300i,400,400i,600,600i,800,800i&display=fallback");
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "biddy-font";
+  src: url("/fonts/biddy-font.woff2") format("woff2"),
+    url("/fonts/biddy-font.woff") format("woff");
+  font-display: block;
+}
+
+@theme inline {
+  --breakpoint-md: 50rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.97 0.013 88);
+  --foreground: oklch(0.22 0.02 58);
+  --card: oklch(0.99 0.01 86);
+  --card-foreground: oklch(0.22 0.02 58);
+  --popover: oklch(0.99 0.01 86);
+  --popover-foreground: oklch(0.22 0.02 58);
+  --primary: oklch(0.32 0.03 58);
+  --primary-foreground: oklch(0.98 0.01 88);
+  --secondary: oklch(0.92 0.02 82);
+  --secondary-foreground: oklch(0.23 0.02 58);
+  --muted: oklch(0.93 0.01 82);
+  --muted-foreground: oklch(0.45 0.02 58);
+  --accent: oklch(0.9 0.03 78);
+  --accent-foreground: oklch(0.24 0.02 58);
+  --destructive: oklch(0.58 0.2 29);
+  --border: oklch(0.84 0.02 78);
+  --input: oklch(0.87 0.02 78);
+  --ring: oklch(0.55 0.06 60);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 14px;
+  }
+
+  section[id] {
+    scroll-margin-top: 3.75rem;
+  }
+
+  main[id] {
+    scroll-margin-top: 0rem;
+  }
+
+  article[id] {
+    scroll-margin-top: 0rem;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    margin: 0;
+    min-width: 320px;
+    font-family: "Libre Franklin", sans-serif;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@media (min-width: 800px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@layer components {
+  .font-biddy {
+    font-family: "biddy-font", "Libre Franklin", sans-serif;
+    letter-spacing: 0.04em;
+    font-weight: 400;
+  }
+
+.hero-parallax {
+  position: relative;
+  height: auto;
+  aspect-ratio: 12 / 5;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+  .member-parallax {
+    position: relative;
+    height: clamp(24rem, 72vh, 52rem);
+    min-height: 24rem;
+    aspect-ratio: auto;
+    overflow: hidden;
+    isolation: isolate;
+    contain: paint;
+    clip-path: inset(0);
+    background-position: center 28px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 800px) {
+  .member-parallax {
+    height: clamp(36rem, 96vh, 90rem);
+    aspect-ratio: auto;
+    background-position: center 40px;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1099.98px) {
+  .hero-parallax {
+    height: auto;
+    aspect-ratio: 12 / 5;
+    background-position: center top;
+    background-size: contain;
+  }
+}
+
+@media (min-width: 1100px) {
+  .hero-parallax {
+    height: clamp(34rem, 92vh, 80rem);
+    aspect-ratio: auto;
+    background-position: center 40px;
+    background-size: cover;
+  }
+}
+
+@media (min-width: 800px) and (prefers-reduced-motion: no-preference) {
+  .member-parallax {
+    background-attachment: fixed;
+  }
+}
+
+@media (min-width: 1100px) and (prefers-reduced-motion: no-preference) {
+  .hero-parallax {
+    background-attachment: fixed;
+  }
+}
