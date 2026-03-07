@@ -21,8 +21,7 @@ import storyParagraphsData from "@/content/story-paragraphs.json";
 const {
   heroImage,
   heroImageAspectRatio,
-  youtubeEmbedUrl,
-  youtubeUploadsPlaylistId,
+  youtubeVideoIds,
   bandcampEmbedUrl,
   bandcampBaseWidth,
   bandcampBaseHeight,
@@ -35,13 +34,11 @@ const storyParagraphs = storyParagraphsData;
 const performanceHighlights = performanceHighlightsData;
 const panelSections = panelSectionsData;
 const events = eventsData;
-const buildYoutubePlaylistEmbedUrl = (playlistId, index) =>
-  `https://www.youtube.com/embed?listType=playlist&list=${encodeURIComponent(playlistId)}&index=${index}&rel=0`;
-const youtubeVideoEmbeds = youtubeUploadsPlaylistId
-  ? Array.from({ length: 4 }, (_, index) =>
-      buildYoutubePlaylistEmbedUrl(youtubeUploadsPlaylistId, index),
-    )
-  : Array.from({ length: 4 }, () => youtubeEmbedUrl);
+const buildYoutubeVideoEmbedUrl = (videoId) =>
+  `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?rel=0`;
+const youtubeVideoEmbeds = youtubeVideoIds
+  .slice(0, 4)
+  .map((videoId) => buildYoutubeVideoEmbedUrl(videoId));
 
 const buildDateTime = (dateValue, timeValue, utcOffset) =>
   `${dateValue}T${timeValue}:00${utcOffset}`;
