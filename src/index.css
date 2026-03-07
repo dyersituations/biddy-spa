@@ -112,6 +112,7 @@
   }
 
   .hero-parallax {
+    --hero-nav-offset: 45px;
     position: relative;
     width: 100%;
     aspect-ratio: 12 / 5;
@@ -136,6 +137,10 @@
 }
 
 @media (min-width: 800px) {
+  .hero-parallax {
+    --hero-nav-offset: 64px;
+  }
+
   .member-parallax {
     height: clamp(36rem, 96vh, 90rem);
     aspect-ratio: auto;
