@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { type CSSProperties, useEffect, useRef, useState } from "react";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa6";
 import {
   FiCalendar,
@@ -20,6 +20,7 @@ import storyParagraphsData from "@/content/story-paragraphs.json";
 
 const {
   heroImage,
+  heroImageAspectRatio,
   youtubeEmbedUrl,
   youtubeUploadsPlaylistId,
   bandcampEmbedUrl,
@@ -57,7 +58,11 @@ const musicEventSchema = {
       eventItem.startTime,
       eventItem.utcOffset,
     ),
-    endDate: buildDateTime(eventItem.startDate, eventItem.endTime, eventItem.utcOffset),
+    endDate: buildDateTime(
+      eventItem.startDate,
+      eventItem.endTime,
+      eventItem.utcOffset,
+    ),
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     description: `${eventItem.name} in ${eventItem.location}. ${eventItem.time}.`,
@@ -93,7 +98,9 @@ const musicEventSchema = {
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [bandcampScale, setBandcampScale] = useState(1);
-  const bandcampWrapperRef = useRef(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+  const headerRef = useRef<HTMLElement | null>(null);
+  const bandcampWrapperRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const wrapper = bandcampWrapperRef.current;
@@ -118,15 +125,50 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) {
+      return undefined;
+    }
+
+    const updateHeaderHeight = () => {
+      const nextHeight = header.offsetHeight;
+      setHeaderHeight((previousHeight) =>
+        previousHeight === nextHeight ? previousHeight : nextHeight,
+      );
+    };
+
+    updateHeaderHeight();
+
+    if (typeof ResizeObserver === "undefined") {
+      window.addEventListener("resize", updateHeaderHeight);
+      return () => window.removeEventListener("resize", updateHeaderHeight);
+    }
+
+    const observer = new ResizeObserver(updateHeaderHeight);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
+
   const handleLogoClick = (event) => {
     event.preventDefault();
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const heroParallaxStyle: CSSProperties & Record<"--hero-nav-offset", string> =
+    {
+      backgroundImage: `url(${heroImage})`,
+      aspectRatio: `${heroImageAspectRatio}`,
+      "--hero-nav-offset": `${headerHeight}px`,
+    };
+
   return (
     <div className="min-h-screen bg-[#f5efdf] text-zinc-900">
-      <header className="sticky top-0 z-50 border-b border-zinc-900/15 bg-[#f5efdf]/95 backdrop-blur">
+      <header
+        ref={headerRef}
+        className="sticky top-0 z-50 border-b border-zinc-900/15 bg-[#f5efdf]/95 backdrop-blur"
+      >
         <div className="mx-auto flex w-full max-w-[59.5rem] items-center justify-between gap-4 px-4 py-2 md:px-6 md:py-3">
           <a
             href="#home"
@@ -197,7 +239,7 @@ export default function App() {
         <section className="relative">
           <div
             className="hero-parallax"
-            style={{ backgroundImage: `url(${heroImage})` }}
+            style={heroParallaxStyle}
             role="img"
             aria-label="Biddy on the Bench group photo"
           />
@@ -374,7 +416,9 @@ export default function App() {
                   <div
                     ref={bandcampWrapperRef}
                     className="w-full overflow-hidden bg-white"
-                    style={{ height: `${bandcampBaseHeight * bandcampScale}px` }}
+                    style={{
+                      height: `${bandcampBaseHeight * bandcampScale}px`,
+                    }}
                   >
                     <iframe
                       className="block"

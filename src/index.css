@@ -7,7 +7,8 @@
 
 @font-face {
   font-family: "biddy-font";
-  src: url("/fonts/biddy-font.woff2") format("woff2"),
+  src:
+    url("/fonts/biddy-font.woff2") format("woff2"),
     url("/fonts/biddy-font.woff") format("woff");
   font-display: block;
 }
@@ -110,14 +111,14 @@
     font-weight: 400;
   }
 
-.hero-parallax {
-  position: relative;
-  height: auto;
-  aspect-ratio: 12 / 5;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+  .hero-parallax {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 12 / 5;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 
   .member-parallax {
     position: relative;
@@ -143,32 +144,19 @@
   }
 }
 
-@media (min-width: 800px) and (max-width: 1099.98px) {
-  .hero-parallax {
-    height: auto;
-    aspect-ratio: 12 / 5;
-    background-position: center top;
-    background-size: contain;
-  }
-}
-
-@media (min-width: 1100px) {
-  .hero-parallax {
-    height: clamp(34rem, 92vh, 80rem);
-    aspect-ratio: auto;
-    background-position: center 40px;
-    background-size: cover;
-  }
-}
-
-@media (min-width: 800px) and (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) {
   .member-parallax {
     background-attachment: fixed;
   }
-}
 
-@media (min-width: 1100px) and (prefers-reduced-motion: no-preference) {
   .hero-parallax {
     background-attachment: fixed;
+    background-position: center var(--hero-nav-offset, 0px);
+  }
+}
+
+@media (max-height: 800px) {
+  .hero-parallax {
+    background-size: cover;
   }
 }
