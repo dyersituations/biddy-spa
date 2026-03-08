@@ -1,9 +1,4 @@
-import {
-  type CSSProperties,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { type CSSProperties, useEffect, useRef, useState } from "react";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa6";
 import {
   FiCalendar,
@@ -142,7 +137,7 @@ export default function App() {
         <div className="mx-auto flex w-full max-w-[59.5rem] items-center justify-between gap-4 px-4 py-2 md:px-6 md:py-3">
           <a
             href="#home"
-            className="font-biddy text-2xl text-zinc-900 uppercase md:text-4xl"
+            className="font-biddy translate-y-[1px] text-2xl text-zinc-900 uppercase md:translate-y-0 md:text-4xl"
             onClick={handleLogoClick}
           >
             BIDDY ON THE BENCH
