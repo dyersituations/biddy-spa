@@ -160,7 +160,7 @@
   }
 }
 
-@media (max-height: 800px) {
+@media (min-aspect-ratio: 12 / 5) {
   .hero-parallax {
     background-size: cover;
   }
