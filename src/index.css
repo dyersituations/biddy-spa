@@ -132,7 +132,7 @@
     clip-path: inset(0);
     background-position: center 28px;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto 100%;
   }
 }
 
