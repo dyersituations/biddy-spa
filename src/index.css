@@ -123,16 +123,19 @@
 
   .member-parallax {
     position: relative;
-    height: clamp(24rem, 72vh, 52rem);
-    min-height: 24rem;
+    height: clamp(20.875rem, calc(72vh - 50px), 48.875rem);
+    min-height: 20.875rem;
     aspect-ratio: auto;
     overflow: hidden;
     isolation: isolate;
     contain: paint;
     clip-path: inset(0);
-    background-position: center 28px;
+    background-image:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.34)),
+      var(--member-image-mobile, var(--member-image-desktop));
+    background-position: center 16px;
     background-repeat: no-repeat;
-    background-size: auto 100%;
+    background-size: cover;
   }
 }
 
@@ -142,8 +145,11 @@
   }
 
   .member-parallax {
-    height: clamp(36rem, 96vh, 90rem);
+    height: clamp(32.875rem, calc(96vh - 50px), 86.875rem);
     aspect-ratio: auto;
+    background-image:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.34)),
+      var(--member-image-desktop);
     background-position: center 40px;
     background-size: cover;
   }

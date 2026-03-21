@@ -263,9 +263,12 @@ export default function App() {
             <article id={member.id} key={member.id}>
               <div
                 className="member-parallax"
-                style={{
-                  backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.34)), url(${member.image})`,
-                }}
+                style={
+                  {
+                    "--member-image-desktop": `url(${member.image})`,
+                    "--member-image-mobile": `url(${member.mobileImage ?? member.image})`,
+                  } as CSSProperties
+                }
                 role="img"
                 aria-label={`${member.name} portrait`}
               />
