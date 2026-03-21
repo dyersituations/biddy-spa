@@ -112,13 +112,14 @@
   }
 
   .hero-parallax {
-    --hero-nav-offset: 45px;
+    --hero-nav-offset: 0px;
     position: relative;
     width: 100%;
-    aspect-ratio: 12 / 5;
+    aspect-ratio: var(--hero-aspect-ratio-mobile, 12 / 5);
+    background-image: var(--hero-image-mobile, var(--hero-image-desktop));
     background-position: center top;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100% auto;
   }
 
   .member-parallax {
@@ -142,6 +143,9 @@
 @media (min-width: 800px) {
   .hero-parallax {
     --hero-nav-offset: 64px;
+    aspect-ratio: var(--hero-aspect-ratio-desktop, 12 / 5);
+    background-image: var(--hero-image-desktop);
+    background-size: contain;
   }
 
   .member-parallax {
@@ -156,13 +160,19 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  .hero-parallax {
+    background-attachment: scroll;
+    background-position: center var(--hero-nav-offset, 0px);
+  }
+}
+
+@media (min-width: 800px) and (prefers-reduced-motion: no-preference) {
   .member-parallax {
     background-attachment: fixed;
   }
 
   .hero-parallax {
     background-attachment: fixed;
-    background-position: center var(--hero-nav-offset, 0px);
   }
 }
 

@@ -1,6 +1,8 @@
 {
   "heroImage": "/images/hero-banner.jpg",
   "heroImageAspectRatio": 2.4,
+  "heroMobileImage": "/images/hero-banner-mobile.jpg",
+  "heroMobileImageAspectRatio": 1.4571428571,
   "youtubeVideoIds": [
     "yXGVLI1hvtc",
     "RCF5IUMGj20",

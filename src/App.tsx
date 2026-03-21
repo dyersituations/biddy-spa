@@ -21,6 +21,8 @@ import storyParagraphsData from "@/content/story-paragraphs.json";
 const {
   heroImage,
   heroImageAspectRatio,
+  heroMobileImage,
+  heroMobileImageAspectRatio,
   youtubeVideoIds,
   bandcampEmbedUrl,
   bandcampBaseWidth,
@@ -126,10 +128,12 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const heroParallaxStyle: CSSProperties = {
-    backgroundImage: `url(${heroImage})`,
-    aspectRatio: `${heroImageAspectRatio}`,
-  };
+  const heroParallaxStyle = {
+    "--hero-image-desktop": `url(${heroImage})`,
+    "--hero-image-mobile": `url(${heroMobileImage ?? heroImage})`,
+    "--hero-aspect-ratio-desktop": `${heroImageAspectRatio}`,
+    "--hero-aspect-ratio-mobile": `${heroMobileImageAspectRatio ?? heroImageAspectRatio}`,
+  } as CSSProperties;
 
   return (
     <div className="min-h-screen bg-[#f5efdf] text-zinc-900">
@@ -293,48 +297,52 @@ export default function App() {
               Upcoming Events
             </h2>
 
-            <div className="grid gap-4 md:grid-cols-3">
-              {events.map((eventItem) => (
-                <a
-                  key={eventItem.name}
-                  href={eventItem.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="block h-full"
-                >
-                  <Card className="relative h-full overflow-hidden border-zinc-900/20 bg-[#f9f4e7] shadow-none transition hover:brightness-105 md:h-[232px]">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center"
-                      style={{ backgroundImage: `url(${eventItem.image})` }}
-                      aria-hidden="true"
-                    />
-                    <div
-                      className="absolute inset-0 bg-black/60"
-                      aria-hidden="true"
-                    />
-                    <CardHeader className="relative pb-3">
-                      <CardTitle className="font-biddy text-2xl text-zinc-50 uppercase">
-                        {eventItem.name}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="relative mt-auto space-y-2 text-sm text-zinc-100">
-                      <p className="flex items-center gap-2">
-                        <FiCalendar className="size-4 text-amber-300" />
-                        {eventItem.date}
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <FiClock className="size-4 text-amber-300" />
-                        {eventItem.time}
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <FiMapPin className="size-4 text-amber-300" />
-                        {eventItem.location}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </a>
-              ))}
-            </div>
+            {events.length > 0 ? (
+              <div className="grid gap-4 md:grid-cols-3">
+                {events.map((eventItem) => (
+                  <a
+                    key={eventItem.name}
+                    href={eventItem.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block h-full"
+                  >
+                    <Card className="relative h-full overflow-hidden border-zinc-900/20 bg-[#f9f4e7] shadow-none transition hover:brightness-105 md:h-[232px]">
+                      <div
+                        className="absolute inset-0 bg-cover bg-center"
+                        style={{ backgroundImage: `url(${eventItem.image})` }}
+                        aria-hidden="true"
+                      />
+                      <div
+                        className="absolute inset-0 bg-black/60"
+                        aria-hidden="true"
+                      />
+                      <CardHeader className="relative pb-3">
+                        <CardTitle className="font-biddy text-2xl text-zinc-50 uppercase">
+                          {eventItem.name}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="relative mt-auto space-y-2 text-sm text-zinc-100">
+                        <p className="flex items-center gap-2">
+                          <FiCalendar className="size-4 text-amber-300" />
+                          {eventItem.date}
+                        </p>
+                        <p className="flex items-center gap-2">
+                          <FiClock className="size-4 text-amber-300" />
+                          {eventItem.time}
+                        </p>
+                        <p className="flex items-center gap-2">
+                          <FiMapPin className="size-4 text-amber-300" />
+                          {eventItem.location}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <p className="text-zinc-600">Coming soon!</p>
+            )}
           </div>
         </section>
 
@@ -413,10 +421,10 @@ export default function App() {
             <h2 className="font-biddy text-2xl uppercase md:text-4xl">
               Contact
             </h2>
-            <div className="flex flex-wrap gap-3 pt-1">
+            <div className="grid max-w-xl grid-cols-2 gap-3 pt-1 md:max-w-none md:flex md:flex-wrap md:justify-start">
               <Button
                 asChild
-                className="border border-[#cc0000] bg-[#ff0000] text-white hover:bg-[#d90000]"
+                className="w-full border border-[#cc0000] bg-[#ff0000] text-white hover:bg-[#d90000] md:w-auto"
               >
                 <a
                   href="https://www.youtube.com/@biddyonthebench"
@@ -429,7 +437,7 @@ export default function App() {
               </Button>
               <Button
                 asChild
-                className="border border-[#f77737] bg-gradient-to-r from-[#f58529] via-[#dd2a7b] to-[#8134af] text-white hover:brightness-95"
+                className="w-full border border-[#f77737] bg-gradient-to-r from-[#f58529] via-[#dd2a7b] to-[#8134af] text-white hover:brightness-95 md:w-auto"
               >
                 <a
                   href="https://instagram.com/biddyonthebench"
@@ -442,7 +450,7 @@ export default function App() {
               </Button>
               <Button
                 asChild
-                className="border border-[#1877f2] bg-[#1877f2] text-white hover:bg-[#166fe5]"
+                className="w-full border border-[#1877f2] bg-[#1877f2] text-white hover:bg-[#166fe5] md:w-auto"
               >
                 <a
                   href="https://www.facebook.com/biddyonthebench/"
@@ -455,7 +463,7 @@ export default function App() {
               </Button>
               <Button
                 asChild
-                className="border border-zinc-700 bg-zinc-800 text-white hover:bg-zinc-700"
+                className="w-full border border-zinc-700 bg-zinc-800 text-white hover:bg-zinc-700 md:w-auto"
               >
                 <a href="mailto:biddyonthebench@gmail.com">
                   Email

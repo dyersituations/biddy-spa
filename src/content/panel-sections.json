@@ -1,7 +1,7 @@
 [
   {
     "id": "kevin",
-    "name": "Kevin",
+    "name": "Kevin Grgurich",
     "role": "Vocals, Flute, Guitar",
     "image": "/images/members/kevin.jpg",
     "mobileImage": "/images/members/mobile/kevin-mobile.jpg",
@@ -9,7 +9,7 @@
   },
   {
     "id": "casey",
-    "name": "Casey",
+    "name": "Casey Dyer",
     "role": "Tenor Banjo, Tin Whistle",
     "image": "/images/members/casey.jpg",
     "mobileImage": "/images/members/mobile/casey-mobile.jpg",
@@ -17,7 +17,7 @@
   },
   {
     "id": "trevor",
-    "name": "Trevor",
+    "name": "Trevor Cormack",
     "role": "Fiddle",
     "image": "/images/members/trevor.jpg",
     "mobileImage": "/images/members/mobile/trevor-mobile.jpg",
