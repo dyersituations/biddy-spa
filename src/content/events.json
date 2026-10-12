@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "name": "Rock Creek Tavern",
+    "date": "October 25, 2026",
+    "time": "5-7pm",
+    "location": "Hillsboro, OR",
+    "startDate": "2026-10-25",
+    "endDate": "2026-10-25",
+    "startTime": "17:00",
+    "endTime": "19:00",
+    "utcOffset": "-07:00",
+    "addressLocality": "Hillsboro",
+    "addressRegion": "OR",
+    "addressCountry": "US",
+    "url": "https://www.mcmenamins.com/events/278612-irish-sundays",
+    "image": "https://cdn.mcmenamins.com/system/uploads/MadborgAssets/rockcreek.jpg"
+  },
+  {
+    "name": "Ringlers Pub",
+    "date": "October 27, 2026",
+    "time": "7-9pm",
+    "location": "Portland, OR",
+    "startDate": "2026-10-27",
+    "endDate": "2026-10-27",
+    "startTime": "19:00",
+    "endTime": "21:00",
+    "utcOffset": "-07:00",
+    "addressLocality": "Portland",
+    "addressRegion": "OR",
+    "addressCountry": "US",
+    "url": "https://www.mcmenamins.com/events/278874-shamrock-rock-an-irish-music-adventure-featuring-biddy-on-the-bench",
+    "image": "https://d2660z551umiy9.cloudfront.net/images/Promos/Ringlers/Ringlers1-2020.jpg"
+  },
+  {
+    "name": "Yachats Celtic Festival",
+    "date": "November 13-15, 2026",
+    "time": "Fri 3-4pm, Sat 10-11am & 2-3pm",
+    "location": "Yachats, OR",
+    "startDate": "2026-11-13",
+    "endDate": "2026-11-14",
+    "startTime": "15:00",
+    "endTime": "15:00",
+    "utcOffset": "-08:00",
+    "addressLocality": "Yachats",
+    "addressRegion": "OR",
+    "addressCountry": "US",
+    "url": "https://yachatscelticmusicfestival.org/",
+    "image": "https://yachatscelticmusicfestival.org/wp-content/uploads/2022/05/HomePage-bkg-1600x800-1.jpg"
+  }
+]

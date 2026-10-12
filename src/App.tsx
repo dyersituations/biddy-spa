@@ -58,7 +58,7 @@ const musicEventSchema = {
       eventItem.utcOffset,
     ),
     endDate: buildDateTime(
-      eventItem.startDate,
+      eventItem.endDate ?? eventItem.startDate,
       eventItem.endTime,
       eventItem.utcOffset,
     ),
