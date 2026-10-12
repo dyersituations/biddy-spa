@@ -38,6 +38,7 @@ const panelSections = panelSectionsData;
 const events = eventsData;
 const buildYoutubeVideoEmbedUrl = (videoId) =>
   `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?rel=0`;
+const toWebp = (imagePath: string) => imagePath.replace(/\.jpe?g$/i, ".webp");
 const youtubeVideoEmbeds = youtubeVideoIds
   .slice(0, 4)
   .map((videoId) => buildYoutubeVideoEmbedUrl(videoId));
@@ -131,6 +132,8 @@ export default function App() {
   const heroParallaxStyle = {
     "--hero-image-desktop": `url(${heroImage})`,
     "--hero-image-mobile": `url(${heroMobileImage ?? heroImage})`,
+    "--hero-image-desktop-webp": `url(${toWebp(heroImage)})`,
+    "--hero-image-mobile-webp": `url(${toWebp(heroMobileImage ?? heroImage)})`,
     "--hero-aspect-ratio-desktop": `${heroImageAspectRatio}`,
     "--hero-aspect-ratio-mobile": `${heroMobileImageAspectRatio ?? heroImageAspectRatio}`,
   } as CSSProperties;
@@ -271,6 +274,8 @@ export default function App() {
                   {
                     "--member-image-desktop": `url(${member.image})`,
                     "--member-image-mobile": `url(${member.mobileImage ?? member.image})`,
+                    "--member-image-desktop-webp": `url(${toWebp(member.image)})`,
+                    "--member-image-mobile-webp": `url(${toWebp(member.mobileImage ?? member.image)})`,
                   } as CSSProperties
                 }
                 role="img"
@@ -308,10 +313,12 @@ export default function App() {
                     className="block h-full"
                   >
                     <Card className="relative h-full overflow-hidden border-zinc-900/20 bg-[#f9f4e7] shadow-none transition hover:brightness-105 md:h-[232px]">
-                      <div
-                        className="absolute inset-0 bg-cover bg-center"
-                        style={{ backgroundImage: `url(${eventItem.image})` }}
-                        aria-hidden="true"
+                      <img
+                        className="absolute inset-0 h-full w-full object-cover"
+                        src={eventItem.image}
+                        alt={eventItem.imageAlt}
+                        loading="lazy"
+                        decoding="async"
                       />
                       <div
                         className="absolute inset-0 bg-black/60"

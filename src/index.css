@@ -117,6 +117,11 @@
     width: 100%;
     aspect-ratio: var(--hero-aspect-ratio-mobile, 12 / 5);
     background-image: var(--hero-image-mobile, var(--hero-image-desktop));
+    background-image: image-set(
+      var(--hero-image-mobile-webp, var(--hero-image-desktop-webp))
+        type("image/webp"),
+      var(--hero-image-mobile, var(--hero-image-desktop)) type("image/jpeg")
+    );
     background-position: center top;
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -134,6 +139,14 @@
     background-image:
       linear-gradient(to bottom, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.34)),
       var(--member-image-mobile, var(--member-image-desktop));
+    background-image:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.34)),
+      image-set(
+        var(--member-image-mobile-webp, var(--member-image-desktop-webp))
+          type("image/webp"),
+        var(--member-image-mobile, var(--member-image-desktop))
+          type("image/jpeg")
+      );
     background-position: center 16px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -145,6 +158,10 @@
     --hero-nav-offset: 64px;
     aspect-ratio: var(--hero-aspect-ratio-desktop, 12 / 5);
     background-image: var(--hero-image-desktop);
+    background-image: image-set(
+      var(--hero-image-desktop-webp) type("image/webp"),
+      var(--hero-image-desktop) type("image/jpeg")
+    );
     background-size: contain;
   }
 
@@ -154,6 +171,12 @@
     background-image:
       linear-gradient(to bottom, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.34)),
       var(--member-image-desktop);
+    background-image:
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.34)),
+      image-set(
+        var(--member-image-desktop-webp) type("image/webp"),
+        var(--member-image-desktop) type("image/jpeg")
+      );
     background-position: center 40px;
     background-size: cover;
   }

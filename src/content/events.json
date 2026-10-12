@@ -13,7 +13,8 @@
     "addressRegion": "OR",
     "addressCountry": "US",
     "url": "https://www.mcmenamins.com/events/278612-irish-sundays",
-    "image": "https://cdn.mcmenamins.com/system/uploads/MadborgAssets/rockcreek.jpg"
+    "image": "https://cdn.mcmenamins.com/system/uploads/MadborgAssets/rockcreek.jpg",
+    "imageAlt": "The gabled exterior of Rock Creek Tavern at golden hour, with its painted sign and patio umbrellas"
   },
   {
     "name": "Ringlers Pub",
@@ -29,7 +30,8 @@
     "addressRegion": "OR",
     "addressCountry": "US",
     "url": "https://www.mcmenamins.com/events/278874-shamrock-rock-an-irish-music-adventure-featuring-biddy-on-the-bench",
-    "image": "https://d2660z551umiy9.cloudfront.net/images/Promos/Ringlers/Ringlers1-2020.jpg"
+    "image": "https://d2660z551umiy9.cloudfront.net/images/Promos/Ringlers/Ringlers1-2020.jpg",
+    "imageAlt": "Ringlers Pub on West Burnside, its brick facade strung with lights beneath star-spangled awnings"
   },
   {
     "name": "Yachats Celtic Festival",
@@ -45,6 +47,7 @@
     "addressRegion": "OR",
     "addressCountry": "US",
     "url": "https://yachatscelticmusicfestival.org/",
-    "image": "https://yachatscelticmusicfestival.org/wp-content/uploads/2022/05/HomePage-bkg-1600x800-1.jpg"
+    "image": "https://yachatscelticmusicfestival.org/wp-content/uploads/2022/05/HomePage-bkg-1600x800-1.jpg",
+    "imageAlt": "A painted scene of musicians playing a traditional Celtic session in a pub"
   }
 ]
