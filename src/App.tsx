@@ -65,7 +65,9 @@ const musicEventSchema = {
     ),
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-    description: `${eventItem.name} in ${eventItem.location}. ${eventItem.time}.`,
+    description: `${eventItem.name} in ${eventItem.location}. ${eventItem.time}.${
+      eventItem.subtitle ? ` ${eventItem.subtitle}.` : ""
+    }`,
     location: {
       "@type": "Place",
       name: eventItem.name,
@@ -312,7 +314,7 @@ export default function App() {
                     rel="noreferrer"
                     className="block h-full"
                   >
-                    <Card className="relative h-full overflow-hidden border-zinc-900/20 bg-[#f9f4e7] shadow-none transition hover:brightness-105 md:h-[232px]">
+                    <Card className="relative h-full overflow-hidden border-zinc-900/20 bg-[#f9f4e7] shadow-none transition hover:brightness-105 md:min-h-[232px]">
                       <img
                         className="absolute inset-0 h-full w-full object-cover"
                         src={eventItem.image}
@@ -328,6 +330,11 @@ export default function App() {
                         <CardTitle className="font-biddy text-2xl text-zinc-50 uppercase">
                           {eventItem.name}
                         </CardTitle>
+                        {eventItem.subtitle ? (
+                          <p className="text-xs font-semibold tracking-[0.12em] text-zinc-200 uppercase">
+                            {eventItem.subtitle}
+                          </p>
+                        ) : null}
                       </CardHeader>
                       <CardContent className="relative mt-auto space-y-2 text-sm text-zinc-100">
                         <p className="flex items-center gap-2">
